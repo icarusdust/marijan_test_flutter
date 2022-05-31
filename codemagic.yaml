@@ -27,7 +27,7 @@ workflows:
           cd . && flutter packages pub get       
       - name: Build APK with Flutter  
         script: |
-          cd . && flutter build appbundle --release
+          cd . && flutter build apk --release
       - name: Rename
         script: |
           mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
