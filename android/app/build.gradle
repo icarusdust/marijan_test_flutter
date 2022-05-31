@@ -50,7 +50,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
-        setProperty("archivesBaseName", "CustomName")
+
     }
 
     signingConfigs {
