@@ -27,10 +27,10 @@ workflows:
           cd . && flutter packages pub get       
       - name: Build APK with Flutter  
         script: |
-          cd . && flutter build apk --release
-      - name: Rename
-        script: |
-          mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/onpc-v1.0.0-release.apk
+          cd . && flutter build appbundle --release
+#       - name: Rename
+#         script: |
+#           mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/onpc-v1.0.0-release.apk
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
