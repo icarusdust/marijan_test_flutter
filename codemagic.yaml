@@ -28,9 +28,10 @@ workflows:
       - name: Build APK with Flutter  
         script: |
           cd . && flutter build appbundle --release
-#       - name: Rename
-#         script: |
-#           mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/onpc-v1.0.0-release.apk
+      - name: Rename
+        script: |
+          mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
+          mv build/app/outputs/flutter-apk/app.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
