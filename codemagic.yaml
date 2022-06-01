@@ -15,6 +15,13 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+    triggering:
+        events:
+          - push
+        branch_patterns:
+          - pattern: 'main'
+            include: true
+            source: true
     scripts:
       - name: Set up key properties
         script: |
