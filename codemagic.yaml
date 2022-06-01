@@ -31,7 +31,7 @@ workflows:
       - name: Rename
         script: |
           mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
-          mv build/app/outputs/flutter-apk/app.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
+#        mv build/app/outputs/flutter-apk/app.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
     artifacts:
 #       - build/**/outputs/**/*.apk
       - build/app/outputs/flutter-apk/my_gucci_life-release.apk
