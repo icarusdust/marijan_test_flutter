@@ -1,7 +1,7 @@
 workflows:
   android-workflow:
     name: Android Workflow
-    instance_type: linux_x2
+    instance_type: mac_pro
     max_build_duration: 60
     environment:
       vars:
@@ -45,10 +45,10 @@ workflows:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
-    publishing:
-      # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
-      slack: 
-        # See the following link about how to connect your Slack account - https://docs.codemagic.io/publishing-yaml/distribution/#slack
-        channel: '#test_channel'
-        notify_on_build_start: true
+#     publishing:
+#       # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
+#       slack: 
+#         # See the following link about how to connect your Slack account - https://docs.codemagic.io/publishing-yaml/distribution/#slack
+#         channel: '#test_channel'
+#         notify_on_build_start: true
       
