@@ -40,17 +40,24 @@ workflows:
       - name: Build APK with Flutter  
         script: |
           cd . && flutter build apk --release
-      - name: Rename
+      - name: Katalon
         script: |
-          mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/my_gucci_life.1.4.$PROJECT_BUILD_NUMBER-release.apk
+         curl -X 'POST' \
+          'https://analytics.katalon.com/api/v1/junit/test-reports?projectId=12&batch=12&folderPath=build/**/outputs/**/*.apk&isEnd=12&fileName=app-release.apk&uploadedPath=build/outputs/apk/release/app-release.apk' \
+          -H 'Authorization: Basic bmloYWxAbmV2ZXJjb2RlLmlvOjA2NTVmYmRiLTg1NmMtNDJmOS1hMTUzLWE0ZWI3NDRlOWY3ZQ==' 
+
+#       - name: Rename
+#         script: |
+#           mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/my_gucci_life.1.4.$PROJECT_BUILD_NUMBER-release.apk
 #        mv build/app/outputs/flutter-apk/app.apk build/app/outputs/flutter-apk/my_gucci_life-release.apk
     artifacts:
-#       - build/**/outputs/**/*.apk
-      - build/app/outputs/flutter-apk/my_gucci_life.1.4.*-release.apk
+      - build/**/outputs/**/*.apk
+#       - build/app/outputs/flutter-apk/my_gucci_life.1.4.*-release.apk
       - test-results/flutter.json
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
+    
 #     publishing:
 #       # See the following link for details about email publishing - https://docs.codemagic.io/publishing-yaml/distribution/#email
 #       slack: 
