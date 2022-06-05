@@ -31,7 +31,12 @@ workflows:
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
       - name: Get Flutter packages
         script: |
-          cd . && flutter packages pub get       
+          cd . && flutter packages pub get  
+      - name: Unit tests
+        script: |
+          mkdir -p test-results
+          flutter test --machine > test-results/flutter.json      
+        test_report: test-results/flutter.json
       - name: Build APK with Flutter  
         script: |
           cd . && flutter build apk --release
@@ -42,6 +47,7 @@ workflows:
     artifacts:
 #       - build/**/outputs/**/*.apk
       - build/app/outputs/flutter-apk/my_gucci_life.1.4.*-release.apk
+      - test-results/flutter.json
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
